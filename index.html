@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Engine AR Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/aframe/mindar-image-aframe.prod.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      #loading { position: absolute; width: 100%; text-align: center; top: 40%; font-size: 24px; color: white; }
+    </style>
+  </head>
+  <body>
+    <div id="loading">Loading AR...</div>
+
+    <a-scene mindar-image="imageTargetSrc: ./mindar/targets.mind; autoStart: true;" 
+             embedded color-space="sRGB" 
+             vr-mode-ui="enabled: false" 
+             device-orientation-permission-ui="enabled: true">
+             
+      <a-assets></a-assets>
+
+      <a-camera position="0 0 0"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane position="0 0 0" width="2" height="1.5" material="opacity: 0"></a-plane>
+
+        <!-- Labels -->
+        <a-text value="1. Engine" position="-0.1 0.4 0" color="yellow" width="2"></a-text>
+        <a-text value="6. Battery" position="0.4 -0.1 0" color="red" width="2"></a-text>
+        <a-text value="3. Brake Oil" position="-0.3 0.3 0" color="lime" width="2"></a-text>
+        <a-text value="4. Wiper Water" position="-0.5 0.1 0" color="skyblue" width="2"></a-text>
+        <a-text value="5. Coolant" position="-0.2 -0.3 0" color="orange" width="2"></a-text>
+        <!-- You can add more -->
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
